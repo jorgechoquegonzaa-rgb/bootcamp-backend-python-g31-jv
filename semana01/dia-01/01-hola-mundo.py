@@ -1,7 +1,13 @@
-nombre = "Jorge Luis"
-edad = 23
+# Esto es un comentario
+# [Regla de oro]: Para consultar toda la informaacion debemos irnos 
+# a la TERMINAL
 
-print(f"Hola soy {nombre}, tengo {edad} años")
-print(f"El dato {nombre} es de tipo ...", type(nombre))
-print(f"El dato {edad} es de tipo ...", type(edad))
-print(f"Naciste en ", 2026-edad)
+# [Regla de oro]: Los archivos en python se ejecutan de la siguiente
+# forma =>    python  NOMBRE_DEL_ARCHIVO.py
+#             py   NOMBRE_DEL_ARCHIVO.py
+# Para autocompletar es usando la tecla tab <- 
+#                                           ->
+print("Hola mundo")
+print("Estoy","aprendiendo","Python")
+print(15+365)
+print("Este es un ejemplo de un error")
