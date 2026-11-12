@@ -166,13 +166,13 @@ while True:
     if 1 <= opcion <= len(maquinas):
         maquina = maquinas[opcion - 1]
         if maquina._creditos == 0:
-            print("💀 Esta máquina está sin créditos. Elige otra.")
+            print("💀 Esta maquina está sin creditos. Elige otra.")
         else:
             jugar_en_maquina(maquina)
 
     # Si elige la opción 4 (Estadísticas)
     elif opcion == len(maquinas) + 1:
-        print("\n📊 ESTADÍSTICAS DEL CASINO")
+        print("\n📊 ESTADISTICAS DEL CASINO")
         print("-" * 35)
         for m in maquinas:
             m.mostrar_estadisticas()
@@ -183,4 +183,3 @@ while True:
         break
     else:
         print("❌ Opción inválida.")
-        
