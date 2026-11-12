@@ -1,22 +1,22 @@
 import random
 
-# PARTE 3 Y 5: CLASE BASE + ENCAPSULACIÓN
+# PARTE 3 Y 5: CLASE BASE 
 
 class Tragamonedas:
     def __init__(self, nombre, creditos):
         self.nombre = nombre
-        # ENCAPSULACIÓN: Usamos _ para indicar que es privado
+        
         self._creditos = creditos 
         self._total_jugado = 0
         self._total_ganado = 0
 
     def mostrar(self):
-        # Si no hay créditos, mostramos un mensaje distinto
+        
         estado = f"S/ {self._creditos}" if self._creditos > 0 else "💀 SIN CRÉDITOS"
         print(f"🎰 {self.nombre} — Créditos: {estado}")
 
     def girar(self):
-        # Símbolos clásicos por defecto
+        
         simbolos = ["🍒", "🔔", "💎", "🍀", "⭐", "7️⃣"]
         resultado = []
         for i in range(3):
@@ -88,7 +88,7 @@ class TragamonedasMundial(Tragamonedas):
         print(f"[ {resultado[0]}  {resultado[1]}  {resultado[2]} ]")
         return resultado
 
-    # SOBRESCRIBIMOS jugar() para que pague x15 y tenga regla del Perú
+
     def jugar(self, apuesta):
         if apuesta > self._creditos:
             print(f"❌ No tienes suficiente saldo. Créditos: {self._creditos}")
@@ -124,7 +124,7 @@ maquinas = [
     TragamonedasMundial("Mundial 2026", 150)
 ]
 
-# 2. Función para jugar dentro de una máquina específica
+
 def jugar_en_maquina(maquina):
     while maquina._creditos > 0:
         maquina.mostrar()
@@ -138,21 +138,19 @@ def jugar_en_maquina(maquina):
             break
 
         maquina.jugar(apuesta)
-        print() # Espacio en blanco para que se vea ordenado
-
-# 3. El bucle del menú del Casino
+        print() 
 while True:
     print("\n" + "=" * 35)
     print("      🎰 CASINO ROYALE 🎰")
     print("=" * 35)
 
-    # Mostramos las máquinas y su estado
+    
     for i in range(len(maquinas)):
         m = maquinas[i]
         estado = f"S/ {m._creditos}" if m._creditos > 0 else "💀 SIN CRÉDITOS"
         print(f"  {i + 1}. {m.nombre} ({estado})")
 
-    # Mostramos las opciones extras
+    
     print(f"  {len(maquinas) + 1}. Mostrar estadísticas de todas")
     print(f"  {len(maquinas) + 2}. Salir")
 
@@ -162,7 +160,7 @@ while True:
         print("❌ Opción inválida.")
         continue
 
-    # Si elige una máquina del 1 al 3
+    
     if 1 <= opcion <= len(maquinas):
         maquina = maquinas[opcion - 1]
         if maquina._creditos == 0:
@@ -170,14 +168,14 @@ while True:
         else:
             jugar_en_maquina(maquina)
 
-    # Si elige la opción 4 (Estadísticas)
+    
     elif opcion == len(maquinas) + 1:
         print("\n📊 ESTADISTICAS DEL CASINO")
         print("-" * 35)
         for m in maquinas:
             m.mostrar_estadisticas()
 
-    # Si elige la opción 5 (Salir)
+
     elif opcion == len(maquinas) + 2:
         print("\n💰 Gracias por visitar el Casino Royale. ¡Vuelve pronto!")
         break
